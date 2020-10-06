@@ -37,7 +37,7 @@ function mainMenu() {
         },
         {
             type: "number",
-            name: "managerID",
+            name: "managerId",
             message: "What is your manager's id?",
             validate: answer => {
                 if (parseInt(answer) >= 0) {
@@ -70,12 +70,12 @@ function mainMenu() {
         }
 
         ]).then(answers => {
-            const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerNumber)
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
             teamMembers.push(manager)
-            idArray.push(answers.managerID)
+            idArray.push(answers.managerId)
             console.log(teamMembers)
 
-            addTeamMember();
+            createMember();
         })
     }
     createManager();
@@ -132,7 +132,7 @@ function mainMenu() {
             idArray.push(answers.engineerID)
             console.log(teamMembers)
 
-            addTeamMember();
+            createMember();
         })
     }
     function createIntern() {
@@ -187,14 +187,14 @@ function mainMenu() {
             idArray.push(answers.internID)
             console.log(teamMembers)
 
-            addTeamMember();
+            createMember();
         })
     }
 
-    function addTeamMember() {
+    function createMember() {
         inquirer.prompt([{
             type: "list",
-            name: "memberType",
+            name: "memberChoice",
             message: "Which type of team member would you like to add?",
             choices: ["Engineer",
                 "Intern",
@@ -202,6 +202,11 @@ function mainMenu() {
         }
         ]).then(answers => {
 
+// After you have your html, you're now ready to create an HTML file using the HTML
+// returned from the `render` function. Now write it to a file named `team.html` in the
+// `output` folder. You can use the variable `outputPath` above target this location.
+// Hint: you may need to check if the `output` folder exists and create it if it
+// does not.
 
             fs.writeFile(outputPath, render(teamMembers), (err) => {
                 if (err) throw err;
@@ -217,9 +222,4 @@ mainMenu()
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
 
