@@ -5,19 +5,16 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-
 const render = require("./lib/htmlRenderer");
-//empty array to push users inputs to 
+//empty array to push user's inputs to 
 const teamMembers = [];
 const idArray = [];
 
 
 // code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints)
-
 function mainMenu() {
     // function for manager prompts
     function createManager() {
@@ -178,7 +175,7 @@ function mainMenu() {
             name: "internEmail",
             message: "What is the intern's email?",
             validate: answer => {
-                //checking if user types in "@" and "." between strings for email
+                //checking if user types in "@" and "." between strings for email or not
                 const pass = answer.match(
                     /\S+@\S+\.\S+/
                 );
@@ -228,10 +225,10 @@ function mainMenu() {
             } else if (answers.memberChoice === "Engineer") {
                 createEngineer();
             } else {
-                buildTeam();
+                createdTeam();
             }
             //function to create team.html
-            function buildTeam() {
+            function createdTeam() {
                 //create an HTML file using the HTML render function
                 // pass in an array containing all employee objects
                 fs.writeFile(outputPath, render(teamMembers), "utf-8", (err) => {
