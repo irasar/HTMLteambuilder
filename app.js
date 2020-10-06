@@ -40,7 +40,7 @@ function mainMenu() {
             message: "What is your manager's id?",
             validate: answer => {
                 //checking if answer is a number greater than 0
-                if (typeof answer === Number && parseInt(answer) >= 0) {
+                if (parseInt(answer) >= 0) {
                     return true;
                 }
                 return "Please enter a positive number greater than zero";
