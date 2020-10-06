@@ -73,8 +73,7 @@ function mainMenu() {
             const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
             teamMembers.push(manager)
             idArray.push(answers.managerId)
-            console.log(teamMembers)
-
+          
             createMember();
         })
     }
@@ -130,7 +129,6 @@ function mainMenu() {
             const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerNumber)
             teamMembers.push(engineer)
             idArray.push(answers.engineerID)
-            console.log(teamMembers)
 
             createMember();
         })
@@ -185,7 +183,6 @@ function mainMenu() {
             const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool)
             teamMembers.push(intern)
             idArray.push(answers.internID)
-            console.log(teamMembers)
 
             createMember();
         })
