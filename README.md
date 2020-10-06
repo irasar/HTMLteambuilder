@@ -6,12 +6,15 @@ This application generates an html webpage that utilizes user input to create a 
  
 
 
-## Table of Contents 
+## Table of Contents
 
+
+* [Contributing](#contributing)
 * [Tests](#tests)
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
+* [Description](#description)
 
 
 ## Installation
