@@ -40,7 +40,7 @@ function mainMenu() {
             message: "What is your manager's id?",
             validate: answer => {
                 //checking if answer is a number greater than 0
-                if (parseInt(answer) >= 0) {
+                if (parseInt(answer) > 0) {
                     return true;
                 }
                 return "Please enter a positive number greater than zero";
@@ -105,7 +105,7 @@ function mainMenu() {
             message: "What is the engineer's ID?",
             validate: answer => {
                  //answer must be number greater than 0
-                if (parseInt(answer) >= 0) {
+                if (parseInt(answer) > 0) {
                     return true;
                 }
                 return "Please enter a positive number greater than zero";
@@ -168,7 +168,7 @@ function mainMenu() {
             message: "What is the intern's id?",
             validate: answer => {
                  //answer must be number greater than 0
-                if (parseInt(answer) >= 0) {
+                if (parseInt(answer) > 0) {
                     return true;
                 }
                 return "Please enter a positive number greater than zero";
