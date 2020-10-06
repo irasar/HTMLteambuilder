@@ -40,7 +40,7 @@ function mainMenu() {
             name: "managerId",
             message: "What is your manager's id?",
             validate: answer => {
-                if (parseInt(answer) >= 0) {
+                if (typeof answer === Number && parseInt(answer) >= 0) {
                     return true;
                 }
                 return "Please enter a positive number greater than zero";
@@ -51,12 +51,21 @@ function mainMenu() {
             name: "managerEmail",
             message: "What is your manager's email?",
             validate: answer => {
-                if (answer !== "") {
+               
+                const pass = answer.match(
+                    /\S+@\S+\.\S+/
+                  );
+                  if (pass) {
                     return true;
-                }
+                  }
                 return "Please enter a valid email address"
             }
         },
+
+
+
+
+
         {
             type: "input",
             name: "managerNumber",
@@ -73,7 +82,7 @@ function mainMenu() {
             const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
             teamMembers.push(manager)
             idArray.push(answers.managerId)
-          
+
             createMember();
         })
     }
@@ -133,6 +142,7 @@ function mainMenu() {
             createMember();
         })
     }
+
     function createIntern() {
         inquirer.prompt([{
             type: "input",
@@ -193,25 +203,39 @@ function mainMenu() {
             type: "list",
             name: "memberChoice",
             message: "Which type of team member would you like to add?",
-            choices: ["Engineer",
+            choices: [
+                "Engineer",
                 "Intern",
-                "I don't want to add anymore team members"]
+                "I don't want to add anymore team members"
+            ]
         }
         ]).then(answers => {
+            if (answers.memberChoice === "Intern") {
+                createIntern();
+            } else if (answers.memberChoice === "Engineer") {
+                createEngineer();
+            } else {
+                buildTeam();
+            }
+            // After you have your html, you're now ready to create an HTML file using the HTML
+            // returned from the `render` function. Now write it to a file named `team.html` in the
+            // `output` folder. You can use the variable `outputPath` above target this location.
+            // Hint: you may need to check if the `output` folder exists and create it if it
+            // does not.
+            function buildTeam() {
+                fs.writeFile(outputPath, render(teamMembers), "utf-8", (err) => {
+                    if (err) throw err;
 
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
 
-            fs.writeFile(outputPath, render(teamMembers), (err) => {
-                if (err) throw err;
-
-            })
+                })
+            }
         })
+
+
     }
+
 };
+
 mainMenu()
 
 
