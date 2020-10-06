@@ -30,9 +30,10 @@ To install use the following command:<br>
 
 Run: <pre><code>node app.js</pre></code><br>
 
+![project pic](/output/teamss.png)<br>
+
 
 https://drive.google.com/file/d/1r4Cpl0uGfzVK1tpRvBsgn74MrJBDPXEX/view
-![project pic](/output/teamss.png)
 
 ## License
 
