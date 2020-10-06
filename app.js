@@ -196,18 +196,20 @@ function mainMenu() {
             type: "list",
             name: "memberType",
             message: "Which type of team member would you like to add?",
-            choices: ['Engineer',
+            choices: ["Engineer",
                 "Intern",
-                "I don't want to add anymore team memebers"]
+                "I don't want to add anymore team members"]
         }
         ]).then(answers => {
-          
 
-        fs.writeFile(outputPath, render(teamMembers) , (err)=>{
-        if (err) throw err;
-  
-    })})
-    }}; 
+
+            fs.writeFile(outputPath, render(teamMembers), (err) => {
+                if (err) throw err;
+
+            })
+        })
+    }
+};
 mainMenu()
 
 
