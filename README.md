@@ -17,7 +17,9 @@ This application generates an html webpage that utilizes user input to create a 
 * [Description](#description)
 
 
+
 ## Installation
+
 
 To install use the following command:<br>
 <pre><code>npm i</pre></code>
@@ -41,6 +43,7 @@ You will then be prompted with questions to build your team.
 ## Contributing
 
 Contributions in the form of issues and pull requests are welcomed and encouraged.
+
 
 ## Tests
 
