@@ -2,7 +2,7 @@
 
 ## Description 
 
-This application generates an html webpage that utilizes user input to create a software engineering team. The application will prompt the user questions using the inquirer package. The project will run as a Node CLI to gather information about each employee. You can choose as many managers, interns, and engineers as you would like to add to your team. The page created will display their email, employee ID number, and more depending on the position of the employee. I have created tests for every position to ensure maintainability throughout the code.
+This application generates an html webpage that utilizes user input to create a software engineering team. The application will prompt the user questions using the inquirer package. The project will run as a Node CLI to gather information about each employee. You can choose managers, interns, and engineers to add to your team. The page created will display their email, employee ID number, and more depending on the position of the employee. I have ran tests for every position to ensure maintainability throughout the code.
  
 
 
