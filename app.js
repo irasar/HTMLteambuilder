@@ -76,7 +76,7 @@ function mainMenu() {
             //pushing to empty array to add the users input
             teamMembers.push(manager)
             idArray.push(answers.managerId)
-            //calling function to see if user wants to add more employees
+            //calling function to see if user wants to add more employees or finish building team
             createMember();
         })
     }
@@ -124,7 +124,7 @@ function mainMenu() {
         },
         {
             type: "input",
-            name: "engineerNumber",
+            name: "engineerGithub",
             message: "What is the engineer's Github?",
             validate: answer => {
                 //conditional to test if the user enters an empty string or not
@@ -136,11 +136,11 @@ function mainMenu() {
         }
 
         ]).then(answers => {
-            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerNumber)
+            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub)
             //pushing to empty array to add the users inpput
             teamMembers.push(engineer)
             idArray.push(answers.engineerID)
-            //calling function to see if user wants to add more employees
+            //calling function to see if user wants to add more employees or finish team
             createMember();
         })
     }
